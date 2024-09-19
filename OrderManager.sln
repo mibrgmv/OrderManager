@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderManager", "OrderManager\OrderManager.csproj", "{8CAF9C5E-C4C9-4710-8B0C-AA0B4FC01C2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8CAF9C5E-C4C9-4710-8B0C-AA0B4FC01C2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CAF9C5E-C4C9-4710-8B0C-AA0B4FC01C2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CAF9C5E-C4C9-4710-8B0C-AA0B4FC01C2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CAF9C5E-C4C9-4710-8B0C-AA0B4FC01C2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
