@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -20,12 +21,14 @@ namespace OrderManager.Controllers
         }
 
         // GET: Order
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Order.ToListAsync());
         }
 
         // GET: Order/Details/5
+        [Authorize]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,17 +47,18 @@ namespace OrderManager.Controllers
         }
 
         // GET: Order/Create
+        [Authorize]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Order/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SenderCity,SenderAddress,RecipientCity,RecipientAddress,WeightKg,PickupDate")] Order order)
+        public async Task<IActionResult> Create(
+            [Bind("Id,SenderCity,SenderAddress,RecipientCity,RecipientAddress,WeightKg,PickupDate")] Order order)
         {
             if (ModelState.IsValid)
             {
@@ -62,10 +66,12 @@ namespace OrderManager.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             return View(order);
         }
 
         // GET: Order/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -78,15 +84,16 @@ namespace OrderManager.Controllers
             {
                 return NotFound();
             }
+
             return View(order);
         }
 
         // POST: Order/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SenderCity,SenderAddress,RecipientCity,RecipientAddress,WeightKg,PickupDate")] Order order)
+        public async Task<IActionResult> Edit(int id,
+            [Bind("Id,SenderCity,SenderAddress,RecipientCity,RecipientAddress,WeightKg,PickupDate")] Order order)
         {
             if (id != order.Id)
             {
@@ -111,12 +118,15 @@ namespace OrderManager.Controllers
                         throw;
                     }
                 }
+
                 return RedirectToAction(nameof(Index));
             }
+
             return View(order);
         }
 
         // GET: Order/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -136,6 +146,7 @@ namespace OrderManager.Controllers
 
         // POST: Order/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

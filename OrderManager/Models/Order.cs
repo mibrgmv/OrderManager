@@ -2,19 +2,19 @@ namespace OrderManager.Models;
 
 public class Order
 {
-    public int Id { get; private set; }
+    public int Id { get; set; }
     
-    public string SenderCity { get; private set; }
+    public string SenderCity { get; set; }
     
-    public string SenderAddress { get; private set; }
+    public string SenderAddress { get; set; }
     
-    public string RecipientCity { get; private set; }
+    public string RecipientCity { get; set; }
     
-    public string RecipientAddress { get; private set; }
+    public string RecipientAddress { get; set; }
     
-    public float WeightKg { get; private set; }
+    public float WeightKg { get; set; }
     
-    public DateTime PickupDate { get; private set; }
+    public DateTime PickupDate { get; set; }
 
     public Order()
     {
